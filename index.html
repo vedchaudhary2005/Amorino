@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amorino</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const correctPassword = "te-amo"; // 🔒 Apna password yahan set karo
+
+        function askPassword() {
+            let userPass = prompt("Sahi Password Daliye Please :");
+            
+            if (userPass === correctPassword) {  
+                document.getElementById("content").style.display = "block"; // ✅ Website content show karo
+                document.getElementById("overlay").style.display = "none"; // ❌ Black Screen Remove
+            } else {
+                alert("Galt Pass mt dalo nhi pta to try mt kro");
+                askPassword(); // ❌ Dubara password maange
+            }
+        }
+
+        askPassword(); // 🔓 Har refresh pe password maangega
+
+        // ❌ Right Click Disable
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+
+        // ❌ Inspect Element (F12, Ctrl+Shift+I, Ctrl+U) Disable
+        document.addEventListener("keydown", function (event) {
+            if (event.keyCode === 123 || 
+                (event.ctrlKey && event.shiftKey && event.keyCode === 73) || 
+                (event.ctrlKey && event.keyCode === 85)) {
+                event.preventDefault();
+                closeWindow(); // 🔥 Direct Site Close
+            }
+        });
+
+        // ❌ Console Open Detection (Agar console open kiya toh site band)
+        setInterval(function() {
+            if (window.outerWidth - window.innerWidth > 200 || 
+                window.outerHeight - window.innerHeight > 200) {
+                closeWindow(); // 🔥 Direct Site Close
+            }
+        }, 500);
+
+        // 🔥 Site Band Karne ka function
+        function closeWindow() {
+            document.body.innerHTML = ""; // Pura page blank
+            alert("Security Violation! Closing the site...");
+            window.close(); // Browser tab close
+            window.location.href = "about:blank"; // Black page redirect
+        }
+    });
+</script>
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="playButton">Click Me</button>
+  <audio id="song" src="assets/tw.mp3.mpeg"></audio>
+
+  <div class="gradient-circle outer-circle"></div>
+  <div class="gradient-circle inner-circle"></div>
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide" style="background-image: url('assets/lucky.png.png');">
+        <p class="slide-text">write whtever u think here</p>
+      </div>
+      <div class="slide" style="background-image: url('assets/cute.png.png');">
+        <p class="slide-text">ewrite whtever u think here</p>
+      </div>
+      <div class="slide" style="background-image: url('assets/amo.jpg');">
+        <p class="slide-text">write whtever u think here.</p>
+      </div>
+      <div class="slide" style="background-image: url('assets/set.png.png');">
+        <p class="slide-text" style="color: black;">write whtever u think here</p>
+      </div>
+      <div class="slide" style="background-image: url('assets/vs.png.jpeg');">
+        <p class="slide-text">write whtever u think here</p>
+      </div>
+      <div class="slide" style="background-image: url('assets/ap.png.jpeg');">
+        <p class="slide-text">write whtever u think here</p>
+      </div>
+      <div class="slide" style="background-image: url('assets/you.png.jpeg');">
+        <p class="slide-text">write whtever u think here</p>
+      </div>
+     
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
