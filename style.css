@@ -14,7 +14,7 @@ body {
 #playButton {
     position: fixed;
     left: 300pxpx;
-    top: 590px;
+    top: 500px;
     z-index: 0;
     padding: 10px 30px;
     background-color: #ff4081;
